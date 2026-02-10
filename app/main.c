@@ -9,16 +9,84 @@
 void SystemClock_Config();
 void GPIO_Init();
 
+void DotLidht() {
+    HAL_GPIO_TogglePin(GPIO_2, GPIO_PIN_7);
+    HAL_DelayMs(100);
+    HAL_GPIO_TogglePin(GPIO_2, GPIO_PIN_7);
+    HAL_DelayMs(100);
+}
+
+void DashLidht() {
+    HAL_GPIO_TogglePin(GPIO_2, GPIO_PIN_7);
+    HAL_DelayMs(300);
+    HAL_GPIO_TogglePin(GPIO_2, GPIO_PIN_7);
+    HAL_DelayMs(100);
+}
+
+void LightYADRO_RISCV() {
+    // Y
+    DashLidht();
+    DotLidht();
+    DashLidht();
+    DashLidht();
+
+    // A
+    DotLidht();
+    DashLidht();
+
+    // D
+    DashLidht();
+    DotLidht();
+    DotLidht();
+
+    // R
+    DotLidht();
+    DashLidht();
+    DotLidht();
+
+    // O
+    DashLidht();
+    DashLidht();
+    DashLidht();
+
+    // space not coded in standard
+
+    // R
+    DotLidht();
+    DashLidht();
+    DotLidht();
+
+    // I
+    DotLidht();
+    DotLidht();
+
+    // S
+    DotLidht();
+    DotLidht();
+    DotLidht();
+
+    // C
+    DashLidht();
+    DotLidht();
+    DashLidht();
+    DotLidht();
+
+    // V
+    DotLidht();
+    DotLidht();
+    DotLidht();
+    DashLidht();
+}
+
 int main()
 {
     SystemClock_Config();
-
     GPIO_Init();
 
     while (1)
     {
-        HAL_GPIO_TogglePin(GPIO_2, GPIO_PIN_7);
-        HAL_DelayMs(500);
+       LightYADRO_RISCV();
+       HAL_DelayMs(500);
     }
 }
 
